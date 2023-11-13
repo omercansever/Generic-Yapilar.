@@ -8,45 +8,45 @@ namespace MyDictionary
 {
     class MyDictionary<Key, Value>
     {
-        Key[] _key;
-        Value[] _value;
+        Key[] _keys;
+        Value[] _values;
 
-        public MyDictionary()
+        public MyDictionary() 
         {
-            _key = new Key[0];   
-            _value = new Value[0];
+            _keys = new Key[0];
+            _values = new Value[0];
         }
 
-        public void Add(Key keys, Value values)
+        public void Add(Key key, Value value)
         {
-            Key[] tempKey = _key;
-            Value[] tempValue = _value;
+            Key[] tempKey = _keys;
+            Value[] tempValue = _values;
 
-            _key = new Key[_key.Length + 1];
-            _value = new Value[_value.Length + 1];
+            _keys = new Key[_keys.Length + 1];
+            _values= new Value[_values.Length + 1];
 
-            for (int i = 0; i < _key.Length; i++)
+            for (int i = 0; i < _keys.Length; i++)
             {
-                _key[i] = tempKey[i];
-                _value[i] = tempValue[i];
+                _keys[i] = tempKey[i];
+                _values[i] = tempValue[i];
             }
-            _key[tempKey.Length - 1] = keys;
-            _value[tempKey.Length - 1] = values;
+            _keys[tempKey.Length - 1] = key;
+            _values[tempValue.Length - 1] = value;
         }
 
         public int Length
         {
-            get { return _key.Length; } 
+            get { return _keys.Length; } 
         }
 
         public Key[] keys 
         {
-            get { return _key; } 
+            get { return _keys; } 
         }
 
         public Value[] values
         {
-            get { return _value; }
+            get { return _values; }
         }
     }
 }
